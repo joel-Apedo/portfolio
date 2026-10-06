@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Capture du tableau de bord DevMetrics">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1530"/>
+      <stop offset="1" stop-color="#0b1226"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b8ff3c" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#b8ff3c" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg3)"/>
+
+  <!-- barre navigateur -->
+  <rect width="1200" height="54" fill="#0e1732"/>
+  <circle cx="32" cy="27" r="6.5" fill="#ff5f57"/>
+  <circle cx="54" cy="27" r="6.5" fill="#febc2e"/>
+  <circle cx="76" cy="27" r="6.5" fill="#28c840"/>
+  <rect x="110" y="15" width="520" height="24" rx="12" fill="#0b1226"/>
+  <text x="128" y="31" font-family="monospace" font-size="12" fill="#7d879f">devmetrics.apedo.dev / dashboard</text>
+
+  <!-- sidebar -->
+  <rect x="0" y="54" width="210" height="696" fill="#0e1732"/>
+  <text x="30" y="106" font-family="Georgia, serif" font-size="21" font-weight="700" fill="#f5f5f0">DevMetrics</text>
+  <rect x="18" y="138" width="174" height="36" rx="10" fill="#b8ff3c" fill-opacity="0.14"/>
+  <text x="42" y="161" font-family="Arial, sans-serif" font-size="13" fill="#b8ff3c">Vue d'ensemble</text>
+  <text x="42" y="208" font-family="Arial, sans-serif" font-size="13" fill="#9aa3bd">Déploiements</text>
+  <text x="42" y="252" font-family="Arial, sans-serif" font-size="13" fill="#9aa3bd">Incidents</text>
+  <text x="42" y="296" font-family="Arial, sans-serif" font-size="13" fill="#9aa3bd">Équipes</text>
+
+  <!-- titre -->
+  <text x="250" y="110" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#f5f5f0">Delivery overview</text>
+  <rect x="1010" y="82" width="140" height="34" rx="17" fill="#101a35" stroke="#233054"/>
+  <text x="1034" y="104" font-family="Arial, sans-serif" font-size="12" fill="#9aa3bd">30 derniers jours</text>
+
+  <!-- KPI -->
+  <g font-family="Arial, sans-serif">
+    <rect x="250" y="140" width="216" height="118" rx="16" fill="#101a35" stroke="#233054"/>
+    <text x="274" y="174" font-size="12" fill="#7d879f">DÉPLOIEMENTS</text>
+    <text x="274" y="222" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#b8ff3c">214</text>
+    <text x="360" y="222" font-size="12" fill="#34d399">+18 %</text>
+
+    <rect x="482" y="140" width="216" height="118" rx="16" fill="#101a35" stroke="#233054"/>
+    <text x="506" y="174" font-size="12" fill="#7d879f">LEAD TIME</text>
+    <text x="506" y="222" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#f5f5f0">1,4 j</text>
+    <text x="610" y="222" font-size="12" fill="#34d399">−31 %</text>
+
+    <rect x="714" y="140" width="216" height="118" rx="16" fill="#101a35" stroke="#233054"/>
+    <text x="738" y="174" font-size="12" fill="#7d879f">TAUX DE RÉUSSITE</text>
+    <text x="738" y="222" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#f5f5f0">97 %</text>
+    <text x="842" y="222" font-size="12" fill="#34d399">+4 pts</text>
+
+    <rect x="946" y="140" width="204" height="118" rx="16" fill="#101a35" stroke="#233054"/>
+    <text x="970" y="174" font-size="12" fill="#7d879f">MTTR</text>
+    <text x="970" y="222" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#f5f5f0">28 m</text>
+    <text x="1074" y="222" font-size="12" fill="#34d399">−12 %</text>
+  </g>
+
+  <!-- graphique principal -->
+  <rect x="250" y="284" width="560" height="300" rx="16" fill="#101a35" stroke="#233054"/>
+  <text x="278" y="322" font-family="Arial, sans-serif" font-size="13" fill="#f5f5f0">Déploiements par semaine</text>
+
+  <g stroke="#1c2748">
+    <line x1="278" y1="380" x2="782" y2="380"/>
+    <line x1="278" y1="440" x2="782" y2="440"/>
+    <line x1="278" y1="500" x2="782" y2="500"/>
+    <line x1="278" y1="548" x2="782" y2="548"/>
+  </g>
+
+  <path d="M278 520 L365 495 L452 505 L539 445 L626 460 L713 390 L782 372 L782 548 L278 548 Z" fill="url(#area)"/>
+  <path d="M278 520 L365 495 L452 505 L539 445 L626 460 L713 390 L782 372" fill="none" stroke="#b8ff3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#0b1226" stroke="#b8ff3c" stroke-width="3">
+    <circle cx="539" cy="445" r="5"/>
+    <circle cx="713" cy="390" r="5"/>
+    <circle cx="782" cy="372" r="5"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="11" fill="#7d879f">
+    <text x="278" y="572">S1</text>
+    <text x="365" y="572">S2</text>
+    <text x="452" y="572">S3</text>
+    <text x="539" y="572">S4</text>
+    <text x="626" y="572">S5</text>
+    <text x="713" y="572">S6</text>
+    <text x="770" y="572">S7</text>
+  </g>
+
+  <!-- colonnes -->
+  <rect x="826" y="284" width="324" height="300" rx="16" fill="#101a35" stroke="#233054"/>
+  <text x="854" y="322" font-family="Arial, sans-serif" font-size="13" fill="#f5f5f0">Délai de récupération (MTTR)</text>
+  <g fill="#1e2a52">
+    <rect x="854" y="470" width="26" height="82" rx="5"/>
+    <rect x="902" y="440" width="26" height="112" rx="5"/>
+    <rect x="950" y="486" width="26" height="66" rx="5"/>
+    <rect x="998" y="416" width="26" height="136" rx="5"/>
+    <rect x="1046" y="452" width="26" height="100" rx="5"/>
+    <rect x="1094" y="396" width="26" height="156" rx="5"/>
+  </g>
+  <g fill="#b8ff3c">
+    <rect x="998" y="416" width="26" height="136" rx="5" fill-opacity="0.75"/>
+    <rect x="1094" y="396" width="26" height="156" rx="5"/>
+  </g>
+  <line x1="854" y1="552" x2="1126" y2="552" stroke="#1c2748"/>
+
+  <!-- tableau -->
+  <rect x="250" y="608" width="900" height="112" rx="16" fill="#101a35" stroke="#233054"/>
+  <g font-family="Arial, sans-serif" font-size="12">
+    <text x="278" y="642" fill="#7d879f">SERVICE</text>
+    <text x="560" y="642" fill="#7d879f">STATUT</text>
+    <text x="780" y="642" fill="#7d879f">DÉPLOIEMENT</text>
+    <text x="1000" y="642" fill="#7d879f">ÉQUIPE</text>
+
+    <line x1="278" y1="656" x2="1122" y2="656" stroke="#1c2748"/>
+
+    <text x="278" y="684" fill="#f5f5f0">api-gateway</text>
+    <rect x="560" y="670" width="84" height="22" rx="11" fill="#34d399" fill-opacity="0.16"/>
+    <text x="574" y="685" fill="#34d399">Healthy</text>
+    <text x="780" y="684" fill="#9aa3bd">il y a 12 min</text>
+    <text x="1000" y="684" fill="#9aa3bd">Platform</text>
+  </g>
+</svg>
