@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Capture d'UniGest : tableau de bord de gestion universitaire avec statistiques">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141827"/>
+      <stop offset="1" stop-color="#0f1220"/>
+    </linearGradient>
+    <linearGradient id="sidebar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2036"/>
+      <stop offset="1" stop-color="#151a2e"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7c6cf0" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#7c6cf0" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <!-- chrome fenêtre desktop -->
+  <rect width="1200" height="46" fill="#1a2036"/>
+  <circle cx="30" cy="23" r="6.5" fill="#ff5f57"/>
+  <circle cx="52" cy="23" r="6.5" fill="#febc2e"/>
+  <circle cx="74" cy="23" r="6.5" fill="#28c840"/>
+  <text x="520" y="28" font-family="monospace" font-size="12" fill="#8b93b5">UniGest — Université de Bamako · Année 2025-2026</text>
+
+  <!-- sidebar -->
+  <rect x="0" y="46" width="230" height="704" fill="url(#sidebar)"/>
+  <text x="28" y="92" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#f5f5f0">Uni<tspan fill="#7c6cf0">Gest</tspan></text>
+  <rect x="20" y="120" width="190" height="36" rx="10" fill="#7c6cf0" opacity="0.2"/>
+  <text x="40" y="143" font-family="Arial, sans-serif" font-size="13" fill="#a89bff">Tableau de bord</text>
+  <text x="40" y="187" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Étudiants</text>
+  <text x="40" y="231" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Professeurs</text>
+  <text x="40" y="275" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Notes &amp; Bulletins</text>
+  <text x="40" y="319" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Absences</text>
+  <text x="40" y="363" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Finances</text>
+  <text x="40" y="407" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Bibliothèque</text>
+  <text x="40" y="451" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Emploi du temps</text>
+  <text x="40" y="495" font-family="Arial, sans-serif" font-size="13" fill="#8b93b5">Sauvegardes</text>
+  <rect x="20" y="680" width="190" height="44" rx="10" fill="#151a2e" stroke="#252c4a"/>
+  <circle cx="44" cy="702" r="12" fill="#7c6cf0"/>
+  <text x="40" y="707" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff">A</text>
+  <text x="64" y="698" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#f5f5f0">Admin</text>
+  <text x="64" y="714" font-family="Arial, sans-serif" font-size="10" fill="#8b93b5">Administrateur</text>
+
+  <!-- contenu principal -->
+  <text x="266" y="96" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="#f5f5f0">Tableau de bord</text>
+  <text x="266" y="120" font-family="Arial, sans-serif" font-size="12" fill="#8b93b5">Année académique 2025-2026 · 1 248 étudiants inscrits</text>
+
+  <!-- KPI -->
+  <g>
+    <rect x="266" y="148" width="215" height="100" rx="14" fill="#1a2036" stroke="#252c4a"/>
+    <text x="286" y="182" font-family="Arial, sans-serif" font-size="11" fill="#8b93b5">ÉTUDIANTS</text>
+    <text x="286" y="220" font-family="monospace" font-size="30" font-weight="700" fill="#f5f5f0">1 248</text>
+  </g>
+  <g>
+    <rect x="501" y="148" width="215" height="100" rx="14" fill="#1a2036" stroke="#252c4a"/>
+    <text x="521" y="182" font-family="Arial, sans-serif" font-size="11" fill="#8b93b5">PROFESSEURS</text>
+    <text x="521" y="220" font-family="monospace" font-size="30" font-weight="700" fill="#f5f5f0">86</text>
+  </g>
+  <g>
+    <rect x="736" y="148" width="215" height="100" rx="14" fill="#1a2036" stroke="#252c4a"/>
+    <text x="756" y="182" font-family="Arial, sans-serif" font-size="11" fill="#8b93b5">FRAIS ENCAISSÉS</text>
+    <text x="756" y="220" font-family="monospace" font-size="30" font-weight="700" fill="#4ade80">78 %</text>
+  </g>
+  <g>
+    <rect x="971" y="148" width="200" height="100" rx="14" fill="#1a2036" stroke="#252c4a"/>
+    <text x="991" y="182" font-family="Arial, sans-serif" font-size="11" fill="#8b93b5">TAUX DE RÉUSSITE</text>
+    <text x="991" y="220" font-family="monospace" font-size="30" font-weight="700" fill="#7c6cf0">71 %</text>
+  </g>
+
+  <!-- graphique -->
+  <rect x="266" y="278" width="590" height="290" rx="14" fill="#1a2036" stroke="#252c4a"/>
+  <text x="286" y="310" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#f5f5f0">Réussite par filière</text>
+  <path d="M296 520 L380 470 L464 490 L548 420 L632 440 L716 380 L800 400 L826 390 L826 540 L296 540 Z" fill="url(#chart)"/>
+  <polyline points="296,520 380,470 464,490 548,420 632,440 716,380 800,400 826,390" fill="none" stroke="#7c6cf0" stroke-width="3"/>
+  <circle cx="296" cy="520" r="4" fill="#7c6cf0"/>
+  <circle cx="380" cy="470" r="4" fill="#7c6cf0"/>
+  <circle cx="464" cy="490" r="4" fill="#7c6cf0"/>
+  <circle cx="548" cy="420" r="4" fill="#7c6cf0"/>
+  <circle cx="632" cy="440" r="4" fill="#7c6cf0"/>
+  <circle cx="716" cy="380" r="4" fill="#7c6cf0"/>
+  <circle cx="800" cy="400" r="4" fill="#7c6cf0"/>
+  <circle cx="826" cy="390" r="4" fill="#7c6cf0"/>
+  <text x="290" y="562" font-family="Arial, sans-serif" font-size="10" fill="#5c6488">Info</text>
+  <text x="448" y="562" font-family="Arial, sans-serif" font-size="10" fill="#5c6488">Droit</text>
+  <text x="620" y="562" font-family="Arial, sans-serif" font-size="10" fill="#5c6488">Éco</text>
+  <text x="790" y="562" font-family="Arial, sans-serif" font-size="10" fill="#5c6488">Lettres</text>
+
+  <!-- liste finances -->
+  <rect x="876" y="278" width="295" height="290" rx="14" fill="#1a2036" stroke="#252c4a"/>
+  <text x="896" y="310" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#f5f5f0">Derniers paiements</text>
+  <text x="896" y="348" font-family="Arial, sans-serif" font-size="12" fill="#c5cbe8">Traoré A. · L2 Info</text>
+  <text x="1096" y="348" font-family="monospace" font-size="12" fill="#4ade80">150 000 F</text>
+  <line x1="896" y1="362" x2="1151" y2="362" stroke="#252c4a"/>
+  <text x="896" y="392" font-family="Arial, sans-serif" font-size="12" fill="#c5cbe8">Diallo M. · L1 Droit</text>
+  <text x="1096" y="392" font-family="monospace" font-size="12" fill="#4ade80">120 000 F</text>
+  <line x1="896" y1="406" x2="1151" y2="406" stroke="#252c4a"/>
+  <text x="896" y="436" font-family="Arial, sans-serif" font-size="12" fill="#c5cbe8">Koné B. · L3 Éco</text>
+  <text x="1096" y="436" font-family="monospace" font-size="12" fill="#4ade80">150 000 F</text>
+  <line x1="896" y1="450" x2="1151" y2="450" stroke="#252c4a"/>
+  <text x="896" y="480" font-family="Arial, sans-serif" font-size="12" fill="#c5cbe8">Cissé F. · M1 Info</text>
+  <text x="1096" y="480" font-family="monospace" font-size="12" fill="#4ade80">200 000 F</text>
+  <line x1="896" y1="494" x2="1151" y2="494" stroke="#252c4a"/>
+  <text x="896" y="524" font-family="Arial, sans-serif" font-size="12" fill="#c5cbe8">Ouédraogo K. · L2 Droit</text>
+  <text x="1096" y="524" font-family="monospace" font-size="12" fill="#4ade80">120 000 F</text>
+
+  <!-- bas de page : rôles -->
+  <rect x="266" y="596" width="905" height="110" rx="14" fill="#1a2036" stroke="#252c4a"/>
+  <text x="286" y="628" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#f5f5f0">Accès multi-rôles</text>
+  <rect x="286" y="648" width="120" height="32" rx="16" fill="#7c6cf0" opacity="0.18"/>
+  <text x="306" y="669" font-family="Arial, sans-serif" font-size="12" fill="#a89bff">Admin · tout</text>
+  <rect x="422" y="648" width="180" height="32" rx="16" fill="#4ade80" opacity="0.14"/>
+  <text x="442" y="669" font-family="Arial, sans-serif" font-size="12" fill="#4ade80">Prof · ses cours &amp; notes</text>
+  <rect x="618" y="648" width="200" height="32" rx="16" fill="#60a5fa" opacity="0.14"/>
+  <text x="638" y="669" font-family="Arial, sans-serif" font-size="12" fill="#60a5fa">Étudiant · bulletin &amp; frais</text>
+  <text x="980" y="669" font-family="monospace" font-size="11" fill="#5c6488">SQLite · sauvegarde auto</text>
+</svg>

@@ -40,55 +40,57 @@ export type Project = {
 export const projects: Project[] = [
   {
     number: "01",
-    title: "E-Shop",
-    meta: "E-commerce · Refonte complète",
-    year: "2025",
-    image: "/projects/e-shop.svg",
+    title: "ArtisanLink",
+    meta: "Marketplace · Services locaux à Bamako",
+    year: "2026",
+    image: "/projects/artisanlink.svg",
     imageAlt:
-      "Capture de la boutique en ligne E-Shop : bannière soldes et grille de produits",
+      "Capture d'ArtisanLink : accueil avec proposition de trouver un artisan vérifié en 5 minutes",
     challenge:
-      "Un marchand spécialisé perdait 40 % de ses paniers au paiement : tunnel lent, formulaires interminables, aucune confiance visuelle.",
+      "À Bamako, trouver un électricien, un plombier ou un mécanicien de confiance prend des heures d'appels. Les artisans sérieux, eux, restent invisibles.",
     solution:
-      "Refonte du tunnel en Next.js avec paiement Stripe en une étape, pré-remplissage intelligent, cache ISR et design system repris de zéro. Livré en six semaines avec l'équipe interne.",
-    resultStat: "+32 %",
-    resultText: "de conversion en trois mois, LCP ramené à 1,2 s sur mobile.",
-    stack: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    demo: "#",
+      "Plateforme web qui connecte la demande WhatsApp à un annuaire d'artisans vérifiés et notés : tableau de bord, notifications, multi-langue FR/EN et mode sombre. Zéro friction pour le client, zéro app à installer.",
+    resultStat: "5 min",
+    resultText:
+      "pour être connecté à un artisan vérifié — et des appels WhatsApp en hausse dès le premier mois.",
+    stack: ["HTML5", "CSS3", "JavaScript Vanilla", "Figma"],
+    repo: "https://github.com/joel-Apedo/artisanlink",
   },
   {
     number: "02",
-    title: "TaskFlow",
-    meta: "Productivité · SaaS temps réel",
-    year: "2024",
-    image: "/projects/taskflow.svg",
+    title: "FASOmarket",
+    meta: "AgriTech · Marketplace d'élevage",
+    year: "2025",
+    image: "/projects/fasomarket.svg",
     imageAlt:
-      "Capture de TaskFlow : tableau kanban avec colonnes à faire, en cours et terminé",
+      "Capture de FASOmarket : annonces d'élevage avec paiement mobile et traçabilité QR",
     challenge:
-      "Des équipes distribuées utilisaient cinq outils différents : l'information se perdait et les réunions de statut prenaient des heures chaque semaine.",
+      "Éleveurs et acheteurs maliens se trouvent au marché avec un rapport de confiance faible : prix opaques, animaux non traçés, paiement en espèces risqué.",
     solution:
-      "Application de collaboration temps réel (Socket.IO), tableaux drag & drop, mentions et notifications ciblées. Architecture Node.js + MongoDB, tests E2E critiques sur les conflits d'édition.",
-    resultStat: "−25 %",
-    resultText: "de réunions de statut, 10 000 tâches traitées chaque mois.",
-    stack: ["React", "Node.js", "Socket.IO", "MongoDB"],
-    demo: "#",
+      "PWA marketplace d'élevage : annonces vérifiées, chat intégré, paiement Orange Money & Wave, traçabilité par QR code et livraison Translait. Transformable en app Android via Capacitor.",
+    resultStat: "3 flux",
+    resultText:
+      "réunis en une seule app : annonce, paiement mobile et traçabilité de bout en bout.",
+    stack: ["PWA", "HTML5", "CSS3", "JavaScript", "Capacitor"],
+    repo: "https://github.com/joel-Apedo/fasomarket",
   },
   {
     number: "03",
-    title: "DevMetrics",
-    meta: "Data · Dashboard interne",
-    year: "2024",
-    image: "/projects/devmetrics.svg",
+    title: "UniGest",
+    meta: "EdTech · Gestion universitaire desktop",
+    year: "2025",
+    image: "/projects/unigest.svg",
     imageAlt:
-      "Capture du tableau de bord DevMetrics : indicateurs de déploiement et graphiques",
+      "Capture d'UniGest : tableau de bord de gestion universitaire avec statistiques",
     challenge:
-      "Aucune visibilité sur la vélocité réelle : les leads tech pilotaient au ressenti, sans données de déploiement ni de qualité.",
+      "Une université gérait étudiants, notes, frais et absences sur papier et fichiers Excel : bulletins tardifs, impayés introuvables, zéro vue d'ensemble.",
     solution:
-      "Tableau de bord d'analytics branché sur GitHub Actions et les APIs internes : métriques DORA, graphiques D3 interactifs, exports hebdomadaires automatiques.",
-    resultStat: "3 équipes",
+      "Application desktop Electron + SQLite, multi-rôles (admin, professeur, étudiant) : inscriptions, notes et bulletins imprimables, finances et reçus numérotés, absences, bibliothèque, sauvegardes automatiques.",
+    resultStat: "1 clic",
     resultText:
-      "pilotées avec ces métriques, 200+ déploiements suivis en continu.",
-    stack: ["Next.js", "D3.js", "GitHub API", "REST"],
-    demo: "#",
+      "pour générer un bulletin officiel ou clôturer l'année — avant, c'était des jours de travail.",
+    stack: ["Electron", "SQLite", "Node.js", "JavaScript"],
+    repo: "https://github.com/joel-Apedo/unigest",
   },
 ];
 

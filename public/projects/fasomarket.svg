@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="Capture de FASOmarket : marketplace d'élevage avec paiement mobile et traçabilité QR">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f4f8f2"/>
+      <stop offset="1" stop-color="#e8f0e4"/>
+    </linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2E7D32"/>
+      <stop offset="1" stop-color="#1F5C24"/>
+    </linearGradient>
+    <linearGradient id="a1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a5d6a7"/>
+      <stop offset="1" stop-color="#e8f5e9"/>
+    </linearGradient>
+    <linearGradient id="a2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffcc80"/>
+      <stop offset="1" stop-color="#fff3e0"/>
+    </linearGradient>
+    <linearGradient id="a3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#90caf9"/>
+      <stop offset="1" stop-color="#e3f2fd"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg)"/>
+
+  <!-- barre navigateur -->
+  <rect width="1200" height="54" fill="#1F5C24"/>
+  <circle cx="32" cy="27" r="6.5" fill="#ff5f57"/>
+  <circle cx="54" cy="27" r="6.5" fill="#febc2e"/>
+  <circle cx="76" cy="27" r="6.5" fill="#28c840"/>
+  <rect x="110" y="15" width="520" height="24" rx="12" fill="#17461b"/>
+  <text x="128" y="31" font-family="monospace" font-size="12" fill="#a5d6a7">fasomarket.ml / annonces</text>
+  <rect x="1120" y="15" width="56" height="24" rx="12" fill="#ffffff" opacity="0.12"/>
+
+  <!-- bandeau annonce -->
+  <rect x="0" y="54" width="1200" height="34" fill="#FFF8E1"/>
+  <text x="330" y="76" font-family="Arial, sans-serif" font-size="12" fill="#8d6e00">Nouveau : la traçabilité QR est gratuite pour tous les éleveurs jusqu'au 31 décembre.</text>
+
+  <!-- header -->
+  <text x="60" y="140" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#2E7D32">FASOmarket</text>
+  <text x="330" y="138" font-family="Arial, sans-serif" font-size="13" fill="#5c7a5e">Bovins</text>
+  <text x="410" y="138" font-family="Arial, sans-serif" font-size="13" fill="#5c7a5e">Petits ruminants</text>
+  <text x="560" y="138" font-family="Arial, sans-serif" font-size="13" fill="#5c7a5e">Volaille</text>
+  <text x="650" y="138" font-family="Arial, sans-serif" font-size="13" fill="#2E7D32" font-weight="700">Comment ça marche</text>
+  <rect x="980" y="118" width="80" height="32" rx="16" fill="#ffffff" stroke="#c8e0c9"/>
+  <text x="1004" y="138" font-family="Arial, sans-serif" font-size="12" fill="#2E7D32">Connexion</text>
+  <rect x="1072" y="118" width="70" height="32" rx="16" fill="#2E7D32"/>
+  <text x="1088" y="138" font-family="Arial, sans-serif" font-size="12" fill="#ffffff">Publier</text>
+
+  <!-- hero -->
+  <rect x="60" y="176" width="1080" height="170" rx="20" fill="url(#hero)"/>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="36" font-weight="800" fill="#ffffff">La marketplace de l'élevage au Mali</text>
+  <text x="100" y="278" font-family="Arial, sans-serif" font-size="14" fill="#c8e6c9">Annonces vérifiées · Chat intégré · Orange Money &amp; Wave · Traçabilité QR · Livraison Translait</text>
+  <rect x="100" y="298" width="150" height="36" rx="18" fill="#FFB300"/>
+  <text x="124" y="321" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#1F5C24">Voir les annonces</text>
+
+  <!-- annonces -->
+  <g>
+    <rect x="60" y="378" width="345" height="320" rx="16" fill="#ffffff" stroke="#d5e5d3"/>
+    <rect x="84" y="402" width="297" height="150" rx="12" fill="url(#a1)"/>
+    <rect x="310" y="418" width="56" height="24" rx="12" fill="#2E7D32"/>
+    <text x="322" y="435" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff">QR</text>
+    <text x="84" y="590" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1b3d1e">Zébu · 3 ans · Male</text>
+    <text x="84" y="614" font-family="Arial, sans-serif" font-size="12" fill="#7a9a7c">Ségou · Vérifié par FASOmarket</text>
+    <text x="84" y="654" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2E7D32">325 000 FCFA</text>
+    <rect x="250" y="634" width="120" height="34" rx="17" fill="#E8F5E9" stroke="#a5d6a7"/>
+    <text x="274" y="656" font-family="Arial, sans-serif" font-size="12" fill="#2E7D32">Contacter</text>
+  </g>
+
+  <g>
+    <rect x="427" y="378" width="345" height="320" rx="16" fill="#ffffff" stroke="#d5e5d3"/>
+    <rect x="451" y="402" width="297" height="150" rx="12" fill="url(#a2)"/>
+    <rect x="677" y="418" width="56" height="24" rx="12" fill="#2E7D32"/>
+    <text x="689" y="435" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff">QR</text>
+    <text x="451" y="590" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1b3d1e">Petit ruminant · Lot de 8</text>
+    <text x="451" y="614" font-family="Arial, sans-serif" font-size="12" fill="#7a9a7c">Mopti · Paiement Wave disponible</text>
+    <text x="451" y="654" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2E7D32">180 000 FCFA</text>
+    <rect x="617" y="634" width="120" height="34" rx="17" fill="#E8F5E9" stroke="#a5d6a7"/>
+    <text x="641" y="656" font-family="Arial, sans-serif" font-size="12" fill="#2E7D32">Contacter</text>
+  </g>
+
+  <g>
+    <rect x="794" y="378" width="345" height="320" rx="16" fill="#ffffff" stroke="#d5e5d3"/>
+    <rect x="818" y="402" width="297" height="150" rx="12" fill="url(#a3)"/>
+    <rect x="1044" y="418" width="56" height="24" rx="12" fill="#2E7D32"/>
+    <text x="1056" y="435" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff">QR</text>
+    <text x="818" y="590" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#1b3d1e">Volaille locale · Lot de 25</text>
+    <text x="818" y="614" font-family="Arial, sans-serif" font-size="12" fill="#7a9a7c">Bamako · Livraison Translait</text>
+    <text x="818" y="654" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#2E7D32">95 000 FCFA</text>
+    <rect x="984" y="634" width="120" height="34" rx="17" fill="#E8F5E9" stroke="#a5d6a7"/>
+    <text x="1008" y="656" font-family="Arial, sans-serif" font-size="12" fill="#2E7D32">Contacter</text>
+  </g>
+</svg>
