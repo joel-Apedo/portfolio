@@ -11,7 +11,7 @@
   tagline:
     "Je transforme des produits complexes en expériences simples, rapides et mémorables.",
   about:
-    "Je conçois des produits web qui allient performance, accessibilité et direction artistique. De la stratégie au déploiement, je transforme des idées complexes en interfaces limpides. Côté cybersécurité et Android, je démonte, analyse et sécurise — du pentest au décodage mobile. Cinq ans à livrer pour des startups et des studios — toujours avec la même obsession : le détail.",
+    "Je conçois des produits web qui allient performance, accessibilité et direction artistique. De la stratégie au déploiement, je transforme des idées complexes en interfaces limpides. Côté cybersécurité et Android, je démonte, analyse et sécurise — du pentest au décodage mobile. Toujours avec la même obsession : le détail.",
 };
 
 export const navLinks = [
@@ -35,6 +35,9 @@ export type Project = {
   stack: string[];
   demo?: string;
   repo?: string;
+  notionId?: string;
+  slug?: string;
+  cover?: string;
 };
 
 export const projects: Project[] = [
@@ -55,6 +58,7 @@ export const projects: Project[] = [
       "pour être connecté à un artisan vérifié — et des appels WhatsApp en hausse dès le premier mois.",
     stack: ["HTML5", "CSS3", "JavaScript Vanilla", "Figma"],
     repo: "https://github.com/joel-Apedo/artisanlink",
+    slug: "artisanlink",
   },
   {
     number: "02",
@@ -73,6 +77,7 @@ export const projects: Project[] = [
       "réunis en une seule app : annonce, paiement mobile et traçabilité de bout en bout.",
     stack: ["PWA", "HTML5", "CSS3", "JavaScript", "Capacitor"],
     repo: "https://github.com/joel-Apedo/fasomarket",
+    slug: "fasomarket",
   },
   {
     number: "03",
@@ -91,21 +96,22 @@ export const projects: Project[] = [
       "pour générer un bulletin officiel ou clôturer l'année — avant, c'était des jours de travail.",
     stack: ["Electron", "SQLite", "Node.js", "JavaScript"],
     repo: "https://github.com/joel-Apedo/unigest",
+    slug: "unigest",
   },
 ];
 
-export const bento = {
+export const skills = {
   stack: [
     "TypeScript",
     "React",
     "Next.js",
     "Node.js",
-    "PostgreSQL",
-    "Prisma",
     "Tailwind CSS",
-    "GraphQL",
-    "Docker",
-    "Stripe",
+    "PostgreSQL",
+    "Python",
+    "Django",
+    "Electron",
+    "Capacitor",
   ],
   security: [
     "Analyse de vulnérabilités & pentest éthique",
@@ -121,11 +127,10 @@ export const bento = {
     "Pédagogie en revue de code",
     "Rigueur sur l'accessibilité",
   ],
-  tools: ["Git · CI/CD", "Figma", "Linear", "Vitest / Playwright", "Vercel"],
+  tools: ["Git · CI/CD", "Figma", "VS Code", "Vercel", "Linux"],
   stats: [
     { value: "5+", label: "ans d'expérience" },
     { value: "30+", label: "projets livrés" },
+    { value: "24h", label: "délai de réponse" },
   ],
 };
-
-export const skills = bento;

@@ -1,61 +1,55 @@
-import { bento } from "@/data/portfolio";
-import { SectionTitle } from "@/components/SectionTitle";
+"use client";
+
+import { skills } from "@/data/portfolio";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
-
-function TechMarquee({ items }: { items: string[] }) {
-  const doubled = [...items, ...items];
-
-  return (
-    <div className="marquee mt-8" aria-hidden>
-      <div className="marquee__track">
-        {doubled.map((tech, i) => (
-          <span
-            key={`${tech}-${i}`}
-            className="chip-hover shrink-0 rounded-full border border-line px-4 py-2 text-base text-foreground/85 sm:text-lg"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function Skills() {
   return (
     <section
       id="competences"
-      className="mx-auto w-full max-w-6xl scroll-reveal px-6 py-32 sm:py-44"
+      className="mx-auto w-full max-w-5xl scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32"
     >
-      <SectionTitle
-        index="03"
-        label="Compétences"
-        title="La boîte à outils."
-        description="Dev web, cybersécurité et Android — un même goût pour le détail technique."
-      />
+      <Reveal>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-accent">
+          03 — Compétences
+        </p>
+        <h2 className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          La boîte à outils.
+        </h2>
+        <p className="mt-4 max-w-xl text-muted">
+          Dev web, cybersécurité et Android — un même goût pour le détail
+          technique.
+        </p>
+      </Reveal>
 
-      <div className="mt-14 grid gap-4 md:grid-cols-6">
-        <Reveal className="md:col-span-4 md:row-span-2">
-          <article className="bento-card h-full p-8 md:p-10">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+      <div className="mt-12 grid gap-4 md:grid-cols-6">
+        <Reveal className="md:col-span-4" delay={0.05}>
+          <article className="card card-hover h-full p-7 md:p-9">
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-accent">
               Stack technique
             </h3>
-            <TechMarquee items={bento.stack} />
-            <p className="mt-10 max-w-md leading-relaxed text-muted">
+            <div className="mt-6 flex flex-wrap gap-2">
+              {skills.stack.map((tech) => (
+                <span key={tech} className="chip">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <p className="mt-7 max-w-md leading-relaxed text-muted">
               TypeScript de bout en bout, architecture orientée performance et
               accessibilité, du design system au déploiement continu.
             </p>
           </article>
         </Reveal>
 
-        <Reveal delay={100} className="md:col-span-2">
-          <article className="bento-card h-full p-8">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+        <Reveal className="md:col-span-2" delay={0.12}>
+          <article className="card card-hover h-full p-7">
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-accent">
               Soft skills
             </h3>
             <ul className="mt-6 space-y-3 text-sm leading-relaxed text-muted">
-              {bento.softSkills.map((skill) => (
+              {skills.softSkills.map((skill) => (
                 <li key={skill} className="flex gap-3">
                   <span aria-hidden className="text-accent">
                     ·
@@ -67,20 +61,20 @@ export function Skills() {
           </article>
         </Reveal>
 
-        <Reveal delay={180} className="md:col-span-2">
-          <article className="bento-card h-full p-8">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+        <Reveal className="md:col-span-2" delay={0.15}>
+          <article className="card card-hover h-full p-7">
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-accent">
               Outils
             </h3>
-            <ul className="mt-6 space-y-3 font-mono text-xs text-muted">
-              {bento.tools.map((tool) => (
+            <ul className="mt-6 space-y-3 text-[13px] text-muted">
+              {skills.tools.map((tool) => (
                 <li
                   key={tool}
                   className="flex justify-between border-b border-line pb-3 last:border-0 last:pb-0"
                 >
                   {tool}
-                  <span aria-hidden className="text-faint transition-transform duration-300 group-hover:translate-x-1">
-                    ▸
+                  <span aria-hidden className="text-faint">
+                    →
                   </span>
                 </li>
               ))}
@@ -88,32 +82,29 @@ export function Skills() {
           </article>
         </Reveal>
 
-        <Reveal delay={120} className="md:col-span-6">
-          <article className="bento-card h-full p-8">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+        <Reveal className="md:col-span-4" delay={0.18}>
+          <article className="card card-hover h-full p-7 md:p-9">
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-accent">
               Cybersécurité &amp; Android
             </h3>
-            <ul className="mt-6 flex flex-wrap gap-3">
-              {bento.security.map((skill) => (
-                <li
-                  key={skill}
-                  className="chip-hover rounded-full border border-line px-4 py-2 text-sm text-foreground/85 sm:text-base"
-                >
+            <div className="mt-6 flex flex-wrap gap-2">
+              {skills.security.map((skill) => (
+                <span key={skill} className="chip text-[13px]">
                   {skill}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
           </article>
         </Reveal>
 
-        <Reveal delay={160} className="md:col-span-3">
-          <article className="bento-card flex h-full items-end justify-between gap-6 p-8">
-            {bento.stats.map((stat) => (
+        <Reveal className="md:col-span-3" delay={0.2}>
+          <article className="card card-hover flex h-full items-end justify-between gap-4 p-7">
+            {skills.stats.map((stat) => (
               <div key={stat.label}>
-                <p className="stat-glow font-serif text-5xl leading-none font-medium text-accent sm:text-6xl">
+                <p className="text-4xl font-semibold tracking-tight text-accent sm:text-5xl">
                   <CountUp value={stat.value} />
                 </p>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-faint">
+                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.14em] text-faint">
                   {stat.label}
                 </p>
               </div>
@@ -121,12 +112,12 @@ export function Skills() {
           </article>
         </Reveal>
 
-        <Reveal delay={240} className="md:col-span-3">
-          <article className="bento-card h-full p-8">
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+        <Reveal className="md:col-span-3" delay={0.25}>
+          <article className="card card-hover h-full p-7">
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-accent">
               Approche
             </h3>
-            <p className="mt-6 leading-relaxed text-muted">
+            <p className="mt-5 leading-relaxed text-muted">
               Mobile-first, contraste WCAG AA, navigation clavier, et zéro
               animation qui coûte des images par seconde. Le beau ne doit jamais
               ralentir l&apos;utile.

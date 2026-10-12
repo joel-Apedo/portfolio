@@ -1,52 +1,43 @@
 "use client";
 
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import { motion, type Variants } from "framer-motion";
+import type { ReactNode } from "react";
+
+const variants: Variants = {
+  hidden: { opacity: 0, y: 36, filter: "blur(6px)" },
+  visible: (delay: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.85,
+      delay,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
 
 export function Reveal({
   children,
   delay = 0,
-  as: Tag = "div",
   className = "",
+  once = true,
 }: {
   children: ReactNode;
   delay?: number;
-  as?: ElementType;
   className?: string;
+  once?: boolean;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      const id = requestAnimationFrame(() => setVisible(true));
-      return () => cancelAnimationFrame(id);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" },
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <Tag
-      ref={ref}
-      className={`reveal ${visible ? "is-visible" : ""} ${className}`}
-      style={{ "--reveal-delay": `${delay}ms` } as React.CSSProperties}
+    <motion.div
+      className={className}
+      custom={delay}
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, amount: 0.2 }}
     >
       {children}
-    </Tag>
+    </motion.div>
   );
 }

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" fill="none">
+  <rect width="1200" height="750" fill="#f0efe9"/>
+  <rect x="80" y="80" width="1040" height="590" rx="32" fill="#ffffff" stroke="rgba(28,28,26,0.08)"/>
+  <circle cx="600" cy="320" r="90" fill="#2f9e44" opacity="0.15"/>
+  <path d="M560 320h80M600 280v80" stroke="#2f9e44" stroke-width="10" stroke-linecap="round"/>
+  <text x="600" y="480" text-anchor="middle" fill="#6f6e69" font-family="system-ui,sans-serif" font-size="28" font-weight="600">Ajoute une capture dans Notion</text>
+  <text x="600" y="520" text-anchor="middle" fill="#9b9a94" font-family="system-ui,sans-serif" font-size="18">Propriété Image / Cover</text>
+</svg>

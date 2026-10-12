@@ -22,7 +22,9 @@ export function CountUp({
     const match = value.match(/^(\D*)(\d+)(.*)$/);
     if (!match) return;
 
-    const [, prefix, num, suffix] = match;
+    const prefix = match[1];
+    const num = match[2];
+    const suffix = match[3];
     const target = Number(num);
     const duration = 1400;
     let frame = 0;
@@ -37,8 +39,7 @@ export function CountUp({
           if (!start) start = now;
           const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 4);
-          const current = Math.round(target * eased);
-          setDisplay(`${prefix}${current}${suffix}`);
+          setDisplay(`${prefix}${Math.round(target * eased)}${suffix}`);
           if (progress < 1) frame = requestAnimationFrame(tick);
         };
 

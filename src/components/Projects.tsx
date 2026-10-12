@@ -1,177 +1,147 @@
+"use client";
+
 import Image from "next/image";
-import { projects } from "@/data/portfolio";
-import { SectionTitle } from "@/components/SectionTitle";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import type { Project } from "@/data/portfolio";
 import { Reveal } from "@/components/Reveal";
 
-function ProjectVisual({
-  number,
-  title,
-  image,
-  imageAlt,
-  href,
-}: {
-  number: string;
-  title: string;
-  image: string;
-  imageAlt: string;
-  href?: string;
-}) {
-  const content = (
-    <>
-      <Image
-        src={image}
-        alt={imageAlt}
-        fill
-        unoptimized
-        sizes="(max-width: 768px) 100vw, 1152px"
-        className="parallax-img object-cover"
-      />
-      <span
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-background/20"
-      />
-      <span className="absolute top-6 left-6 rounded-full border border-line bg-background/70 px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-foreground/85 backdrop-blur-sm">
-        {number} — {title}
-      </span>
-      <span
-        aria-hidden
-        className="absolute right-6 bottom-6 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-background/70 text-muted backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:border-accent group-hover:text-accent group-hover:shadow-[0_0_28px_rgba(184,255,60,0.35)]"
-      >
-        ↗
-      </span>
-    </>
-  );
-
-  const className =
-    "project-visual group relative block aspect-[16/9] w-full overflow-hidden rounded-3xl border border-line bg-background-soft";
-
-  if (href && href !== "#") {
-    return (
-      <a
-        href={href}
-        data-cursor="voir"
-        aria-label={`Voir le projet ${title}`}
-        className={className}
-      >
-        {content}
-      </a>
-    );
-  }
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const href = project.notionId
+    ? `/projet/${project.slug ?? project.notionId}`
+    : undefined;
 
   return (
-    <div data-cursor="voir" className={className}>
-      {content}
-    </div>
+    <Reveal delay={index * 0.08}>
+      <motion.article
+        className="group grid items-start gap-8 md:grid-cols-2 md:gap-12"
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+      >
+        <motion.div
+          variants={{
+            rest: { y: 0 },
+            hover: { y: -6 },
+          }}
+          transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          className="relative"
+        >
+          <div className="card card-hover relative overflow-hidden !rounded-3xl">
+            <div className="relative aspect-[16/10] overflow-hidden bg-surface-2">
+              <Image
+                src={project.cover || project.image}
+                alt={project.imageAlt}
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-30"
+              />
+            </div>
+            <span className="absolute top-4 left-4 rounded-full bg-background/85 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-foreground backdrop-blur-sm">
+              {project.number}
+            </span>
+          </div>
+        </motion.div>
+
+        <div className="flex flex-col justify-center">
+          <p className="text-[12px] font-medium text-muted">
+            {project.meta}
+            <span className="mx-2 text-faint">·</span>
+            {project.year}
+          </p>
+
+          <h3 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            {href ? (
+              <Link href={href} className="link-soft hover:text-accent">
+                {project.title}
+              </Link>
+            ) : (
+              project.title
+            )}
+          </h3>
+
+          <p className="mt-4 leading-relaxed text-muted">{project.challenge}</p>
+          <p className="mt-3 leading-relaxed text-muted">{project.solution}</p>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {project.stack.map((tech) => (
+              <span key={tech} className="chip text-[12px]">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-end gap-6">
+            <div>
+              <p className="text-3xl font-semibold tracking-tight text-accent">
+                {project.resultStat}
+              </p>
+              <p className="mt-1 max-w-xs text-sm text-muted">
+                {project.resultText}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-medium">
+            {href && (
+              <Link href={href} className="link-soft text-foreground/80">
+                Lire le case study ↗
+              </Link>
+            )}
+            {project.demo && project.demo !== "#" && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-soft text-foreground/80"
+              >
+                Démo en ligne ↗
+              </a>
+            )}
+            {project.repo && (
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-soft text-foreground/80"
+              >
+                Code source ↗
+              </a>
+            )}
+          </div>
+        </div>
+      </motion.article>
+    </Reveal>
   );
 }
 
-export function Projects() {
+export function Projects({ projects }: { projects: Project[] }) {
   return (
     <section
       id="projets"
-      className="mx-auto w-full max-w-6xl scroll-reveal px-6 py-32 sm:py-44"
+      className="mx-auto w-full max-w-5xl scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32"
     >
-      <SectionTitle
-        index="02"
-        label="Projets"
-        title="Trois problèmes, trois réponses."
-        description="Chaque projet raconté de la même façon : le défi, ce que j'ai construit, et ce que ça a changé."
-      />
+      <Reveal>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-accent">
+          02 — Projets
+        </p>
+        <h2 className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          Trois problèmes, trois réponses.
+        </h2>
+        <p className="mt-4 max-w-xl text-muted">
+          Chaque projet raconté de la même façon : le défi, ce que j&apos;ai
+          construit, et ce que ça a changé.
+        </p>
+      </Reveal>
 
-      <div className="mt-24 space-y-40 sm:space-y-56">
-        {projects.map((project) => (
-          <article key={project.title} className="scroll-reveal">
-            <Reveal>
-              <ProjectVisual
-                number={project.number}
-                title={project.title}
-                image={project.image}
-                imageAlt={project.imageAlt}
-                href={project.demo}
-              />
-            </Reveal>
-
-            <Reveal delay={100}>
-              <header className="mt-10 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
-                <span className="text-muted">{project.meta}</span>
-                <span>{project.year}</span>
-              </header>
-            </Reveal>
-
-            <h3 className="scroll-title mt-5 font-serif text-5xl leading-none font-medium tracking-tight sm:text-7xl">
-              {project.title}
-            </h3>
-
-            <dl className="mt-12 max-w-3xl space-y-10">
-              <Reveal delay={80}>
-                <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                    Défi
-                  </dt>
-                  <dd className="leading-relaxed text-muted">
-                    {project.challenge}
-                  </dd>
-                </div>
-              </Reveal>
-
-              <Reveal delay={160}>
-                <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                    Solution
-                  </dt>
-                  <dd>
-                    <p className="leading-relaxed text-muted">
-                      {project.solution}
-                    </p>
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {project.stack.map((tech) => (
-                        <li
-                          key={tech}
-                          className="chip-hover rounded-full border border-line px-3 py-1 font-mono text-[11px] text-foreground/70"
-                        >
-                          {tech}
-                        </li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-              </Reveal>
-
-              <Reveal delay={240}>
-                <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
-                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                    Résultat
-                  </dt>
-                  <dd>
-                    <p className="stat-glow font-serif text-5xl leading-none font-medium text-accent sm:text-6xl">
-                      {project.resultStat}
-                    </p>
-                    <p className="mt-4 leading-relaxed text-muted">
-                      {project.resultText}
-                    </p>
-                    <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
-                      {project.demo && project.demo !== "#" && (
-                        <a
-                          href={project.demo}
-                          className="link-underline text-foreground/80 hover:text-accent"
-                        >
-                          Voir en ligne ↗
-                        </a>
-                      )}
-                      {project.repo && (
-                        <a
-                          href={project.repo}
-                          className="link-underline text-foreground/80 hover:text-accent"
-                        >
-                          Code source ↗
-                        </a>
-                      )}
-                    </div>
-                  </dd>
-                </div>
-              </Reveal>
-            </dl>
-          </article>
+      <div className="mt-14 space-y-16 sm:space-y-24">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.title + index} project={project} index={index} />
         ))}
       </div>
     </section>

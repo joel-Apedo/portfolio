@@ -6,20 +6,19 @@ import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
-import { ScrollProgress } from "@/components/ScrollProgress";
-import { Ambient } from "@/components/Ambient";
+import { getProjectsFromNotion } from "@/lib/notion";
 
-export default function Home() {
+export default async function Home() {
+  const { projects } = await getProjectsFromNotion();
+
   return (
     <>
-      <Ambient />
-      <ScrollProgress />
       <CustomCursor />
       <Header />
       <main id="contenu" className="flex-1">
         <Hero />
         <About />
-        <Projects />
+        <Projects projects={projects} />
         <Skills />
         <Contact />
       </main>

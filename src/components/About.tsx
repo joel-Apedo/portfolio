@@ -1,56 +1,71 @@
+"use client";
+
 import { profile } from "@/data/portfolio";
-import { SectionTitle } from "@/components/SectionTitle";
-import { Portrait } from "@/components/Portrait";
 import { Reveal } from "@/components/Reveal";
+import { Portrait } from "@/components/Portrait";
 
 export function About() {
   return (
     <section
       id="apropos"
-      className="mx-auto w-full max-w-6xl scroll-reveal px-6 py-32 sm:py-44"
+      className="mx-auto w-full max-w-5xl scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32"
     >
-      <SectionTitle
-        index="01"
-        label="À propos"
-        title="Moins de biographie, plus d'impact."
-      />
+      <Reveal>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-accent">
+          01 — À propos
+        </p>
+        <h2 className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          Moins de biographie, plus d&apos;impact.
+        </h2>
+      </Reveal>
 
-      <div className="mt-14 grid items-start gap-14 md:grid-cols-[1.6fr_1fr]">
+      <div className="mt-12 grid items-start gap-12 md:grid-cols-[1.5fr_1fr]">
         <div>
-          <Reveal>
-            <p className="max-w-2xl text-pretty font-serif text-2xl leading-[1.5] text-foreground/90 sm:text-3xl">
+          <Reveal delay={0.1}>
+            <p className="max-w-xl text-pretty text-xl leading-relaxed text-muted">
               {profile.about}
             </p>
           </Reveal>
 
-          <dl className="mt-12 space-y-8 font-mono text-[11px] uppercase tracking-[0.18em]">
-            <Reveal delay={120}>
-              <div>
-                <dt className="text-faint">Basé à</dt>
-                <dd className="mt-2 text-sm text-muted">{profile.location}</dd>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            <Reveal delay={0.15}>
+              <div className="card card-hover p-5">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-faint">
+                  Basé à
+                </p>
+                <p className="mt-2 text-sm font-medium text-foreground">
+                  {profile.location}
+                </p>
               </div>
             </Reveal>
-            <Reveal delay={220}>
-              <div>
-                <dt className="text-faint">Expérience</dt>
-                <dd className="mt-2 text-sm text-muted">
+            <Reveal delay={0.22}>
+              <div className="card card-hover p-5">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-faint">
+                  Expérience
+                </p>
+                <p className="mt-2 text-sm font-medium text-foreground">
                   5+ ans · startups &amp; studios
-                </dd>
+                </p>
               </div>
             </Reveal>
-            <Reveal delay={320}>
-              <div>
-                <dt className="text-faint">Disponibilité</dt>
-                <dd className="mt-2 flex items-center gap-2 text-sm text-muted">
-                  <span className="status-pulse" aria-hidden />
+            <Reveal delay={0.3}>
+              <div className="card card-hover p-5">
+                <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-faint">
+                  Disponibilité
+                </p>
+                <p className="mt-2 flex items-center gap-2 text-sm font-medium text-foreground">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+                  </span>
                   Freelance &amp; CDI
-                </dd>
+                </p>
               </div>
             </Reveal>
-          </dl>
+          </div>
         </div>
 
-        <Reveal delay={200} className="md:sticky md:top-28">
+        <Reveal delay={0.12} className="flex justify-center md:justify-end">
           <Portrait />
         </Reveal>
       </div>

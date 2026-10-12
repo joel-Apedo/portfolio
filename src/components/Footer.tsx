@@ -3,15 +3,12 @@ import { profile } from "@/data/portfolio";
 export function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-10 font-mono text-[11px] uppercase tracking-[0.18em] text-faint sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 px-5 py-10 text-[12px] text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <p>
           © {profile.year} {profile.name}
         </p>
-        <p className="text-muted">Next.js · Tailwind · Fraunces</p>
-        <a
-          href="#accueil"
-          className="link-underline transition-colors hover:text-accent"
-        >
+        <p className="text-faint">Next.js · Tailwind · Framer Motion · Notion</p>
+        <a href="#accueil" className="link-soft w-fit hover:text-accent">
           ↑ Haut de page
         </a>
       </div>

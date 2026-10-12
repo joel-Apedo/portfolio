@@ -1,66 +1,156 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { profile } from "@/data/portfolio";
-import { SectionTitle } from "@/components/SectionTitle";
 import { Reveal } from "@/components/Reveal";
 
 export function Contact() {
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const subject = encodeURIComponent(`Portfolio — Message de ${form.name}`);
+    const body = encodeURIComponent(
+      `Nom : ${form.name}\nEmail : ${form.email}\n\n${form.message}`,
+    );
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    setSent(true);
+  };
+
   return (
     <section
       id="contact"
-      className="mx-auto w-full max-w-6xl scroll-reveal px-6 py-32 sm:py-44"
+      className="mx-auto w-full max-w-5xl scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32"
     >
-      <SectionTitle
-        index="04"
-        label="Contact"
-        title="Parlons de votre prochain projet."
-        description="Appelez, écrivez sur WhatsApp ou par e-mail — je réponds sous 24 h."
-      />
+      <Reveal>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-accent">
+          04 — Contact
+        </p>
+        <h2 className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          Parlons de votre prochain projet.
+        </h2>
+        <p className="mt-4 max-w-xl text-muted">
+          Remplis le formulaire ou écris directement — je réponds sous 24 h.
+        </p>
+      </Reveal>
 
-      <div className="mt-14 grid gap-14 md:grid-cols-[2fr_1fr] md:items-start">
-        <div className="space-y-8">
-          <Reveal>
+      <div className="mt-12 grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
+        <Reveal>
+          <AnimatePresence mode="wait">
+            {sent ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="card p-8"
+              >
+                <p className="text-2xl font-semibold tracking-tight text-foreground">
+                  Message préparé ✓
+                </p>
+                <p className="mt-3 leading-relaxed text-muted">
+                  Ton client mail vient de s&apos;ouvrir avec le message pré-rempli.
+                  Tu peux aussi m&apos;écrire directement sur WhatsApp.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSent(false)}
+                  className="btn-ghost mt-6"
+                >
+                  Écrire un autre message
+                </button>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="form"
+                onSubmit={handleSubmit}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                className="card space-y-4 p-6 sm:p-8"
+              >
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block text-[12px] font-medium text-muted">
+                    Nom
+                    <input
+                      required
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, name: e.target.value }))
+                      }
+                      className="mt-2 w-full rounded-xl border border-line bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent"
+                      placeholder="Votre nom"
+                    />
+                  </label>
+                  <label className="block text-[12px] font-medium text-muted">
+                    Email
+                    <input
+                      required
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, email: e.target.value }))
+                      }
+                      className="mt-2 w-full rounded-xl border border-line bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent"
+                      placeholder="vous@email.com"
+                    />
+                  </label>
+                </div>
+                <label className="block text-[12px] font-medium text-muted">
+                  Message
+                  <textarea
+                    required
+                    name="message"
+                    rows={5}
+                    value={form.message}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, message: e.target.value }))
+                    }
+                    className="mt-2 w-full resize-y rounded-xl border border-line bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors focus:border-accent"
+                    placeholder="Parlez-moi de votre projet…"
+                  />
+                </label>
+                <button type="submit" className="btn-primary w-full sm:w-auto">
+                  Envoyer le message
+                  <span aria-hidden>→</span>
+                </button>
+              </motion.form>
+            )}
+          </AnimatePresence>
+        </Reveal>
+
+        <Reveal delay={0.12}>
+          <div className="space-y-4">
             <a
               href={profile.phoneHref}
-              className="contact-phone w-fit font-serif text-4xl leading-tight font-medium tracking-tight text-foreground sm:text-6xl"
+              className="link-soft block text-2xl font-semibold tracking-tight text-foreground hover:text-accent sm:text-3xl"
             >
               {profile.phoneDisplay}
             </a>
-          </Reveal>
-
-          <Reveal delay={120}>
-            <p>
-              <a
-                href={`mailto:${profile.email}`}
-                className="link-underline font-mono text-sm tracking-wide text-muted transition-colors hover:text-accent"
-              >
-                {profile.email}
-              </a>
-            </p>
-          </Reveal>
-        </div>
-
-        <ul className="space-y-4 font-mono text-[11px] uppercase tracking-[0.22em]">
-          <Reveal delay={160} as="li">
+            <a
+              href={`mailto:${profile.email}`}
+              className="link-soft block text-sm text-muted"
+            >
+              {profile.email}
+            </a>
             <a
               href={profile.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline inline-flex items-center gap-3 text-accent transition-colors hover:text-foreground"
+              className="btn-ghost mt-2"
             >
-              WhatsApp <span aria-hidden>↗</span>
+              WhatsApp ↗
             </a>
-          </Reveal>
-          <Reveal delay={240} as="li">
-            <span className="inline-flex items-center gap-3 text-muted">
-              {profile.location}
-            </span>
-          </Reveal>
-          <Reveal delay={320} as="li">
-            <span className="inline-flex items-center gap-3 text-muted">
-              <span className="status-pulse" aria-hidden />
-              Disponible maintenant
-            </span>
-          </Reveal>
-        </ul>
+            <p className="pt-4 text-sm text-faint">{profile.location}</p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
