@@ -97,6 +97,24 @@ export function Skills() {
           </article>
         </Reveal>
 
+        <Reveal className="md:col-span-3" delay={0.16}>
+          <article className="card card-hover h-full p-7">
+            <h3 className="text-[12px] font-semibold uppercase tracking-[0.16em] text-accent">
+              Programmation Android sécurisée
+            </h3>
+            <ul className="mt-6 space-y-3 text-sm leading-relaxed text-muted">
+              {skills.android.map((skill) => (
+                <li key={skill} className="flex gap-3">
+                  <span aria-hidden className="text-accent">
+                    ·
+                  </span>
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </article>
+        </Reveal>
+
         <Reveal className="md:col-span-3" delay={0.2}>
           <article className="card card-hover flex h-full items-end justify-between gap-4 p-7">
             {skills.stats.map((stat) => (
