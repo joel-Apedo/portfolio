@@ -1,6 +1,6 @@
 ﻿export const profile = {
   name: "APEDO Kodjo Joel",
-  role: "Développeur Full-Stack & Designer d'interfaces",
+  role: "Développeur Full-Stack · Cybersécurité & Android",
   location: "Mali · Remote",
   email: "joelapedo63@gmail.com",
   phoneDisplay: "+223 63 75 93 10",
@@ -11,7 +11,7 @@
   tagline:
     "Je transforme des produits complexes en expériences simples, rapides et mémorables.",
   about:
-    "Je conçois des produits web qui allient performance, accessibilité et direction artistique. De la stratégie au déploiement, je transforme des idées complexes en interfaces limpides. Cinq ans à livrer pour des startups et des studios — toujours avec la même obsession : le détail.",
+    "Je conçois des produits web qui allient performance, accessibilité et direction artistique. De la stratégie au déploiement, je transforme des idées complexes en interfaces limpides. Côté cybersécurité et Android, je démonte, analyse et sécurise — du pentest au décodage mobile. Cinq ans à livrer pour des startups et des studios — toujours avec la même obsession : le détail.",
 };
 
 export const navLinks = [
@@ -106,6 +106,14 @@ export const bento = {
     "GraphQL",
     "Docker",
     "Stripe",
+  ],
+  security: [
+    "Analyse de vulnérabilités & pentest éthique",
+    "Sécurité Android : ADB, rooting, recovery",
+    "Décodage / déverrouillage et forensics mobile",
+    "Réseaux : sniffing, Wi-Fi, protocoles",
+    "Chiffrement, mots de passe, OSINT",
+    "Scripting bash & Python pour l'automatisation",
   ],
   softSkills: [
     "Communication claire avec les non-techs",

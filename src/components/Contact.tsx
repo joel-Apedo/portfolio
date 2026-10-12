@@ -1,5 +1,6 @@
 import { profile } from "@/data/portfolio";
 import { SectionTitle } from "@/components/SectionTitle";
+import { Reveal } from "@/components/Reveal";
 
 export function Contact() {
   return (
@@ -16,25 +17,29 @@ export function Contact() {
 
       <div className="mt-14 grid gap-14 md:grid-cols-[2fr_1fr] md:items-start">
         <div className="space-y-8">
-          <a
-            href={profile.phoneHref}
-            className="link-underline w-fit font-serif text-4xl leading-tight font-medium tracking-tight text-foreground hover:text-accent sm:text-6xl"
-          >
-            {profile.phoneDisplay}
-          </a>
-
-          <p>
+          <Reveal>
             <a
-              href={`mailto:${profile.email}`}
-              className="link-underline font-mono text-sm tracking-wide text-muted transition-colors hover:text-accent"
+              href={profile.phoneHref}
+              className="contact-phone w-fit font-serif text-4xl leading-tight font-medium tracking-tight text-foreground sm:text-6xl"
             >
-              {profile.email}
+              {profile.phoneDisplay}
             </a>
-          </p>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <p>
+              <a
+                href={`mailto:${profile.email}`}
+                className="link-underline font-mono text-sm tracking-wide text-muted transition-colors hover:text-accent"
+              >
+                {profile.email}
+              </a>
+            </p>
+          </Reveal>
         </div>
 
         <ul className="space-y-4 font-mono text-[11px] uppercase tracking-[0.22em]">
-          <li>
+          <Reveal delay={160} as="li">
             <a
               href={profile.whatsapp}
               target="_blank"
@@ -43,12 +48,18 @@ export function Contact() {
             >
               WhatsApp <span aria-hidden>↗</span>
             </a>
-          </li>
-          <li>
+          </Reveal>
+          <Reveal delay={240} as="li">
             <span className="inline-flex items-center gap-3 text-muted">
               {profile.location}
             </span>
-          </li>
+          </Reveal>
+          <Reveal delay={320} as="li">
+            <span className="inline-flex items-center gap-3 text-muted">
+              <span className="status-pulse" aria-hidden />
+              Disponible maintenant
+            </span>
+          </Reveal>
         </ul>
       </div>
     </section>

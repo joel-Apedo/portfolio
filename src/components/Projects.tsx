@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { projects } from "@/data/portfolio";
 import { SectionTitle } from "@/components/SectionTitle";
+import { Reveal } from "@/components/Reveal";
 
 function ProjectVisual({
   number,
@@ -23,7 +24,7 @@ function ProjectVisual({
         fill
         unoptimized
         sizes="(max-width: 768px) 100vw, 1152px"
-        className="object-cover"
+        className="parallax-img object-cover"
       />
       <span
         aria-hidden
@@ -34,7 +35,7 @@ function ProjectVisual({
       </span>
       <span
         aria-hidden
-        className="absolute right-6 bottom-6 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-background/70 text-muted backdrop-blur-sm transition-colors duration-500 group-hover:border-accent group-hover:text-accent"
+        className="absolute right-6 bottom-6 flex h-12 w-12 items-center justify-center rounded-full border border-line bg-background/70 text-muted backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:border-accent group-hover:text-accent group-hover:shadow-[0_0_28px_rgba(184,255,60,0.35)]"
       >
         ↗
       </span>
@@ -44,7 +45,7 @@ function ProjectVisual({
   const className =
     "project-visual group relative block aspect-[16/9] w-full overflow-hidden rounded-3xl border border-line bg-background-soft";
 
-  if (href) {
+  if (href && href !== "#") {
     return (
       <a
         href={href}
@@ -80,85 +81,95 @@ export function Projects() {
       <div className="mt-24 space-y-40 sm:space-y-56">
         {projects.map((project) => (
           <article key={project.title} className="scroll-reveal">
-            <ProjectVisual
-              number={project.number}
-              title={project.title}
-              image={project.image}
-              imageAlt={project.imageAlt}
-              href={project.demo}
-            />
+            <Reveal>
+              <ProjectVisual
+                number={project.number}
+                title={project.title}
+                image={project.image}
+                imageAlt={project.imageAlt}
+                href={project.demo}
+              />
+            </Reveal>
 
-            <header className="mt-10 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
-              <span className="text-muted">{project.meta}</span>
-              <span>{project.year}</span>
-            </header>
+            <Reveal delay={100}>
+              <header className="mt-10 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-faint">
+                <span className="text-muted">{project.meta}</span>
+                <span>{project.year}</span>
+              </header>
+            </Reveal>
 
             <h3 className="scroll-title mt-5 font-serif text-5xl leading-none font-medium tracking-tight sm:text-7xl">
               {project.title}
             </h3>
 
             <dl className="mt-12 max-w-3xl space-y-10">
-              <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
-                <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                  Défi
-                </dt>
-                <dd className="leading-relaxed text-muted">
-                  {project.challenge}
-                </dd>
-              </div>
+              <Reveal delay={80}>
+                <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+                    Défi
+                  </dt>
+                  <dd className="leading-relaxed text-muted">
+                    {project.challenge}
+                  </dd>
+                </div>
+              </Reveal>
 
-              <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
-                <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                  Solution
-                </dt>
-                <dd>
-                  <p className="leading-relaxed text-muted">
-                    {project.solution}
-                  </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {project.stack.map((tech) => (
-                      <li
-                        key={tech}
-                        className="rounded-full border border-line px-3 py-1 font-mono text-[11px] text-foreground/70"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                </dd>
-              </div>
+              <Reveal delay={160}>
+                <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+                    Solution
+                  </dt>
+                  <dd>
+                    <p className="leading-relaxed text-muted">
+                      {project.solution}
+                    </p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {project.stack.map((tech) => (
+                        <li
+                          key={tech}
+                          className="chip-hover rounded-full border border-line px-3 py-1 font-mono text-[11px] text-foreground/70"
+                        >
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </Reveal>
 
-              <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
-                <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
-                  Résultat
-                </dt>
-                <dd>
-                  <p className="font-serif text-5xl leading-none font-medium text-accent sm:text-6xl">
-                    {project.resultStat}
-                  </p>
-                  <p className="mt-4 leading-relaxed text-muted">
-                    {project.resultText}
-                  </p>
-                  <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        className="link-underline text-foreground/80 hover:text-accent"
-                      >
-                        Voir en ligne ↗
-                      </a>
-                    )}
-                    {project.repo && (
-                      <a
-                        href={project.repo}
-                        className="link-underline text-foreground/80 hover:text-accent"
-                      >
-                        Code source ↗
-                      </a>
-                    )}
-                  </div>
-                </dd>
-              </div>
+              <Reveal delay={240}>
+                <div className="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-8">
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent">
+                    Résultat
+                  </dt>
+                  <dd>
+                    <p className="stat-glow font-serif text-5xl leading-none font-medium text-accent sm:text-6xl">
+                      {project.resultStat}
+                    </p>
+                    <p className="mt-4 leading-relaxed text-muted">
+                      {project.resultText}
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.18em]">
+                      {project.demo && project.demo !== "#" && (
+                        <a
+                          href={project.demo}
+                          className="link-underline text-foreground/80 hover:text-accent"
+                        >
+                          Voir en ligne ↗
+                        </a>
+                      )}
+                      {project.repo && (
+                        <a
+                          href={project.repo}
+                          className="link-underline text-foreground/80 hover:text-accent"
+                        >
+                          Code source ↗
+                        </a>
+                      )}
+                    </div>
+                  </dd>
+                </div>
+              </Reveal>
             </dl>
           </article>
         ))}

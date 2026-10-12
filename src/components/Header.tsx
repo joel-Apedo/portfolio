@@ -1,8 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { navLinks, profile } from "@/data/portfolio";
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-line/60 bg-background/75 backdrop-blur-xl">
+    <header
+      className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-500 ${
+        scrolled
+          ? "border-line bg-background/85 backdrop-blur-xl shadow-[0_10px_40px_-24px_rgba(0,0,0,0.8)]"
+          : "border-line/40 bg-background/40 backdrop-blur-md"
+      }`}
+    >
       <a href="#contenu" className="skip-link">
         Aller au contenu
       </a>
@@ -10,9 +28,15 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
         <a
           href="#accueil"
-          className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/80 transition-colors hover:text-accent"
+          className="group font-mono text-xs uppercase tracking-[0.2em] text-foreground/80 transition-colors hover:text-accent"
         >
           {profile.name}
+          <span
+            aria-hidden
+            className="ml-1 inline-block text-accent opacity-0 transition-all duration-300 group-hover:opacity-100"
+          >
+            ●
+          </span>
         </a>
 
         <nav aria-label="Navigation principale">

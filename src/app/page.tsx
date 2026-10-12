@@ -6,10 +6,14 @@ import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { Ambient } from "@/components/Ambient";
 
 export default function Home() {
   return (
     <>
+      <Ambient />
+      <ScrollProgress />
       <CustomCursor />
       <Header />
       <main id="contenu" className="flex-1">
