@@ -19,18 +19,18 @@
 }
 
 .dark {
-  --background: #191917;
-  --surface: #222220;
-  --surface-2: #2a2a27;
-  --foreground: #f0efe9;
-  --muted: #a8a69e;
-  --faint: #7a7870;
-  --line: rgba(240, 239, 233, 0.1);
-  --accent: #69db7c;
-  --accent-strong: #8ce99a;
-  --accent-soft: rgba(105, 219, 124, 0.14);
-  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 28px rgba(0, 0, 0, 0.3);
-  --shadow-lift: 0 2px 4px rgba(0, 0, 0, 0.3), 0 16px 48px rgba(0, 0, 0, 0.4);
+  --background: #0b0c10;
+  --surface: #12131a;
+  --surface-2: #1a1b24;
+  --foreground: #f2f1ec;
+  --muted: #9a9990;
+  --faint: #6e6d66;
+  --line: rgba(242, 241, 236, 0.1);
+  --accent: #3dde6a;
+  --accent-strong: #69db7c;
+  --accent-soft: rgba(61, 222, 106, 0.14);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 12px 40px rgba(0, 0, 0, 0.45);
+  --shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.4), 0 24px 64px rgba(0, 0, 0, 0.55);
 }
 
 @theme inline {
@@ -296,6 +296,100 @@ body {
 }
 
 /* ------------------------------------------------
+   Cinematic hero — stage, tint, fallback, brand
+-------------------------------------------------*/
+.cine-stage {
+  isolation: isolate;
+}
+
+.cine-bg-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(61, 222, 106, 0.18), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(61, 222, 106, 0.1), transparent 50%),
+    linear-gradient(160deg, #0b0c10 0%, #12141c 45%, #0b0c10 100%);
+  background-size: 200% 200%, 200% 200%, 100% 100%;
+  animation: cine-drift 16s ease-in-out infinite alternate;
+}
+
+.light-mode .cine-bg-fallback,
+:root:not(.dark) .cine-bg-fallback {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(47, 158, 68, 0.16), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(47, 158, 68, 0.08), transparent 50%),
+    linear-gradient(160deg, #f7f6f2 0%, #eef0ea 50%, #f7f6f2 100%);
+}
+
+@keyframes cine-drift {
+  0% { background-position: 0% 40%, 100% 60%, 0 0; }
+  100% { background-position: 100% 60%, 0% 40%, 0 0; }
+}
+
+.cine-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 55%,
+    var(--background) 100%
+  );
+  pointer-events: none;
+}
+
+.cine-brand {
+  position: absolute;
+  right: 4vw;
+  bottom: 8vh;
+  z-index: 2;
+  font-size: clamp(1.4rem, 4vw, 3.2rem);
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  opacity: 0.12;
+  pointer-events: none;
+  user-select: none;
+}
+
+.cine-brand b {
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+/* ------------------------------------------------
+   Liquid trail — trainee SVG distordue
+-------------------------------------------------*/
+.liquid-trail {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 94;
+  pointer-events: none;
+}
+
+@media (pointer: fine) {
+  .liquid-trail.is-active {
+    display: block;
+  }
+}
+
+.trail-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent);
+  will-change: transform, opacity;
+}
+
+/* ------------------------------------------------
    Accessibilité
 -------------------------------------------------*/
 @media (prefers-reduced-motion: reduce) {
@@ -312,7 +406,12 @@ body {
   }
 
   .cursor-dot,
-  .cursor-ring {
+  .cursor-ring,
+  .liquid-trail {
     display: none !important;
+  }
+
+  .cine-bg-fallback {
+    animation: none !important;
   }
 }

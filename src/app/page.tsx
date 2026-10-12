@@ -6,6 +6,8 @@ import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CustomCursor } from "@/components/CustomCursor";
+import { LiquidTrail } from "@/components/LiquidTrail";
+import { NetworkCanvas } from "@/components/NetworkCanvas";
 import { getProjectsFromNotion } from "@/lib/notion";
 
 export default async function Home() {
@@ -14,8 +16,10 @@ export default async function Home() {
   return (
     <>
       <CustomCursor />
+      <LiquidTrail />
+      <NetworkCanvas />
       <Header />
-      <main id="contenu" className="flex-1">
+      <main id="contenu" className="relative z-[2] flex-1">
         <Hero />
         <About />
         <Projects projects={projects} />

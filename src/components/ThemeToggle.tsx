@@ -11,11 +11,10 @@ function getStoredTheme(): Theme | null {
   return stored === "light" || stored === "dark" ? stored : null;
 }
 
-function getSystemTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+function getInitialTheme(): Theme {
+  const stored = getStoredTheme();
+  if (stored) return stored;
+  return "dark";
 }
 
 export function applyTheme(theme: Theme) {
@@ -32,13 +31,13 @@ export function ThemeToggle() {
   useEffect(() => {
     const id = requestAnimationFrame(() => {
       setMounted(true);
-      setTheme(getStoredTheme() ?? getSystemTheme());
+      setTheme(getInitialTheme());
     });
 
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const onChange = () => {
       if (!getStoredTheme()) {
-        const next = media.matches ? "dark" : "light";
+        const next: Theme = "dark";
         setTheme(next);
         applyTheme(next);
       }
